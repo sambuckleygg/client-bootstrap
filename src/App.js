@@ -4,6 +4,7 @@ import GlobalNav from './components/global-nav/global-nav';
 import Viewport from './components/viewport/viewport';
 import styled from 'styled-components';
 import bg from './assets/images/sc-bg-1.png';
+import GlobalSvg from './components/global-svg/global-svg';
 
 const AppContainer = styled.div`
   position: relative;
@@ -37,7 +38,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       globalNav: {
-        open: false
+        open: true
       }
     };
   }
@@ -55,6 +56,7 @@ class App extends React.Component {
   render() {
     return (
       <AppContainer className="App">
+        <GlobalSvg />
         <GlobalNav options={this.state.globalNav} />
         <ScreenOverlay enabled={this.state.globalNav.open} />
         <Viewport className={`viewport ${this.state.globalNav.open ? 'blur' : ''}`} />
